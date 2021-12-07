@@ -13,6 +13,13 @@ module.exports = {
         'custom-orange': colors.themeOrange,
         'custom-yellow': colors.themeYellow,
       },
+      height: {
+        'semi-full': '80%',
+      },
+      zIndex: {
+        '-1': '-1',
+        1: '1',
+      },
     },
   },
   variants: {

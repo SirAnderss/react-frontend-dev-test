@@ -1,4 +1,5 @@
 import Header from 'components/Header/Header';
+import Hero from 'components/Hero/Hero';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -11,8 +12,9 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='w-full h-screen'>
+      <main>
         <Header />
+        <Hero />
       </main>
     </>
   );
