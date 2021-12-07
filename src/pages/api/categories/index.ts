@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function allCategories(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse<TAPICategoryListResponse>
 ) {
   try {
     const db = new DB();

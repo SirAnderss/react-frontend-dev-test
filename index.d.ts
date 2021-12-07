@@ -16,8 +16,8 @@ type TProduct = {
   image: string;
 };
 
-type TAPIProdictDetailResponse = TProduct;
-type TAPICategoryDetailResponse = TCategory;
+type TAPIProdictDetaillResponse = TProduct;
+type TAPICategoryDetaillResponse = TCategory;
 
 type TAPIProdictListResponse = {
   length: number;
