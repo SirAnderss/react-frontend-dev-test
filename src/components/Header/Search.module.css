@@ -1,0 +1,31 @@
+.active,
+.form-input {
+  display: block;
+  width: 100%;
+  animation: fadeIn 0.7s;
+}
+
+.form-input {
+  background: #f0f0f0;
+  animation: color 0.7s;
+}
+
+@keyframes fadeIn {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes color {
+  from {
+    background: transparent;
+  }
+
+  to {
+    background: #f0f0f0;
+  }
+}

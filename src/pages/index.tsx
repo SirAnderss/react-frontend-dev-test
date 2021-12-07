@@ -1,3 +1,4 @@
+import Header from 'components/Header/Header';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -10,8 +11,8 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='w-full h-screen grid place-items-center'>
-        Hola mundo
+      <main className='w-full h-screen'>
+        <Header />
       </main>
     </>
   );
