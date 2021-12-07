@@ -4,6 +4,7 @@ import { BiChevronDown } from 'react-icons/bi';
 
 export default function DropDown() {
   const [delivery, setDelivery] = useState('Now');
+
   return (
     <div className=''>
       <Menu as='div' className='relative inline-block text-left'>
@@ -26,10 +27,10 @@ export default function DropDown() {
           leaveTo='transform opacity-0 scale-95'
         >
           <Menu.Items className='absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
-            <div className='px-3 py-1 text-sm'>
+            <div className='px-3 py-1'>
               <Menu.Item>
                 <div
-                  className='w-full px-2 py-2 text-gray-900 border-b'
+                  className='w-full px-2 py-2 text-gray-900 border-b cursor-pointer relative z-1'
                   onClick={() => setDelivery('Now')}
                 >
                   Now
@@ -37,7 +38,7 @@ export default function DropDown() {
               </Menu.Item>
               <Menu.Item>
                 <div
-                  className='w-full px-2 py-2 text-gray-900'
+                  className='w-full px-2 py-2 text-gray-900 cursor-pointer relative z-1'
                   onClick={() => setDelivery('Later')}
                 >
                   Later

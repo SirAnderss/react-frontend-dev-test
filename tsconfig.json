@@ -23,6 +23,9 @@
       "@database": [
         "database/db.ts"
       ],
+      "@cors": [
+        "cors-middleware.ts"
+      ],
     }
   },
   "include": [

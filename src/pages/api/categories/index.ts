@@ -1,3 +1,4 @@
+import enablePublicAccess from '@cors';
 import DB from '@database';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
@@ -6,6 +7,8 @@ export default async function allCategories(
   res: NextApiResponse<TAPICategoryListResponse>
 ) {
   try {
+    await enablePublicAccess(req, res);
+
     const db = new DB();
 
     const allCategories = await db.getAllCategories();

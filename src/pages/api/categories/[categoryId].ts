@@ -1,3 +1,4 @@
+import enablePublicAccess from '@cors';
 import DB from '@database';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
@@ -6,6 +7,8 @@ export default async function categoryById(
   res: NextApiResponse<TAPICategoryDetaillResponse | null>
 ) {
   try {
+    await enablePublicAccess(req, res);
+
     const db = new DB();
     const categoryId: TCategoryId = parseInt(req.query.categoryId as string);
 

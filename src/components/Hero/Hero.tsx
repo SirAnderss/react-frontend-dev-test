@@ -8,7 +8,7 @@ export default function Hero() {
     <>
       <div className='w-full relative pt-8 mx-auto lg:w-10/12 lg:flex'>
         <div className='w-full h-semi-full absolute bottom-0 left-0 bg-custom-yellow opacity-20 rounded-t-2xl -z-1 lg:h-48 lg:rounded-3xl'></div>
-        <div className='w-10/12 h-60 mx-auto relative lg:w-60 lg:ml-20'>
+        <div className='w-10/12 h-60 mx-auto relative lg:w-80 lg:ml-20'>
           <Image
             src='https://i.postimg.cc/fLb4DyPm/headerimage.png'
             alt='Hero'

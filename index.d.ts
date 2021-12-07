@@ -2,7 +2,7 @@ type TProductId = number;
 type TCategoryId = number;
 
 type TCategory = {
-  id: TPCategoryId;
+  id: TCategoryId;
   name: string;
   icon: string;
 };
