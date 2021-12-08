@@ -16,6 +16,14 @@ type TProduct = {
   image: string;
 };
 
+type TCartItem = {
+  id: TProductId;
+  name: string;
+  price: number;
+  amount: number;
+  image: string;
+};
+
 type TAPIProdictDetaillResponse = TProduct;
 type TAPICategoryDetaillResponse = TCategory;
 

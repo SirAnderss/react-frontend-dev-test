@@ -1,4 +1,5 @@
 import Categories from 'components/Categories/Categories';
+import Container from 'components/Container/Container';
 import Footer from 'components/Footer/Footer';
 import Header from 'components/Header/Header';
 import Hero from 'components/Hero/Hero';
@@ -30,12 +31,14 @@ const Home = ({ categoryList }: { categoryList: TCategory[] }) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main>
-        <Header />
-        <Hero />
-        <Categories categories={categoryList} />
-        <Products />
-        <Footer />
+      <main className='w-full mx-auto lg:w-10/12'>
+        <Container>
+          <Header />
+          <Hero />
+          <Categories categories={categoryList} />
+          <Products />
+          <Footer />
+        </Container>
       </main>
     </>
   );

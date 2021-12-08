@@ -28,13 +28,13 @@ export default function Hero() {
                 height={40}
               />
             </div>
-            <p className='text-gray-600'>
+            <p className='text-gray-600 lg:text-sm'>
               $0 delivery fee for order over $10 for 30 days
             </p>
           </div>
-          <div className='lg:w-2/12 lg:h-full lg:flex lg:items-end'>
+          <div className='lg:w-3/12 lg:h-full lg:flex lg:items-end lg:justify-end'>
             <Link href='/'>
-              <a className='text-lg font-semibold'>
+              <a className='text-sm font-semibold'>
                 Learn more <HiOutlineArrowNarrowRight className='inline' />
               </a>
             </Link>

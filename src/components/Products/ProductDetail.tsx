@@ -1,16 +1,11 @@
 import Image from 'next/image';
 import { AiOutlineStar } from 'react-icons/ai';
+import textReducer from 'resources/textReducer';
 import styles from './ProductDetail.module.css';
 
 type ProductDetailProps = {
   product: TProduct;
 };
-
-function textReducer(str: string, length: number): string {
-  return str.length > length
-    ? `${str.slice(0, length).slice(0, -1).trim()}...`
-    : str;
-}
 
 export default function ProductDetail({ product }: ProductDetailProps) {
   return (

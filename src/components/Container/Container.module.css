@@ -1,0 +1,15 @@
+.active {
+  display: block;
+  width: 36rem;
+  animation: fadeIn 150ms;
+}
+
+@keyframes fadeIn {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 36rem%;
+  }
+}

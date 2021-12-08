@@ -8,8 +8,8 @@ export default function Header() {
   const [active, setActive] = useState(false);
 
   return (
-    <header className='w-full h-16 px-4 mx-auto relative flex items-center gap-4 bg-white lg:h-20 lg:w-10/12 justify-between'>
-      <div className='flex  h-full items-center gap-4'>
+    <header className='w-full h-16 px-4 relative flex items-center justify-between gap-4 bg-white lg:h-20 lg:w-10/12'>
+      <div className='flex h-full items-center gap-4'>
         <div
           className={`w-6 h-0.5 relative -mt-1 bg-gray-800 cursor-pointer ${styles.menu}`}
         />
@@ -24,7 +24,9 @@ export default function Header() {
         </Link>
       </div>
       <Search active={active} setActive={setActive} />
-      <UserCart />
+      <div className='flex h-full items-center gap-4 absolute right-4 lg:-right-20'>
+        <UserCart />
+      </div>
     </header>
   );
 }

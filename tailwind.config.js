@@ -13,6 +13,11 @@ module.exports = {
         'custom-orange': colors.themeOrange,
         'custom-yellow': colors.themeYellow,
       },
+      width: {
+        104: '28rem',
+        112: '32rem',
+        120: '36rem',
+      },
       height: {
         'semi-full': '80%',
       },
