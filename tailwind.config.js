@@ -16,6 +16,9 @@ module.exports = {
       height: {
         'semi-full': '80%',
       },
+      maxWidth: {
+        xxs: '18rem',
+      },
       zIndex: {
         '-1': '-1',
         1: '1',
