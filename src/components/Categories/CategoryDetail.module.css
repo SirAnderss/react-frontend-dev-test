@@ -1,0 +1,30 @@
+.category {
+  box-shadow: 0px 15px 50px -30px #4f4f4f;
+}
+
+.active {
+  background: #fcd661;
+  animation: colorize 0.5s;
+}
+
+@keyframes colorize {
+  from {
+    background: #d1d5db;
+  }
+
+  to {
+    background: #fcd661;
+  }
+}
+
+@media (max-width: 1024px) {
+  @keyframes colorize {
+    from {
+      background: #fff;
+    }
+
+    to {
+      background: #fcd661;
+    }
+  }
+}
