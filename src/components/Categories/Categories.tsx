@@ -41,12 +41,14 @@ export default function Categories({ categories }: CategoriesProps) {
           ))}
         </Slider>
       </div>
-      <button
-        className='absolute top-1/2 -right-5 bg-gray-100 rounded-xl shadow-md transform -translate-y-1/2'
-        onClick={() => sliderRef?.current?.slickNext()}
-      >
-        <BiChevronRight className='text-4xl' />
-      </button>
+      {categories.length > 8 && (
+        <button
+          className='absolute top-1/2 -right-5 bg-gray-100 rounded-xl shadow-md transform -translate-y-1/2'
+          onClick={() => sliderRef?.current?.slickNext()}
+        >
+          <BiChevronRight className='text-4xl' />
+        </button>
+      )}
     </div>
   );
 }

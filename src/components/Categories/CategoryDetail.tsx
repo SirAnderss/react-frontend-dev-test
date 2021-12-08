@@ -14,7 +14,7 @@ export default function CategoryDetail({
 }: CategoryDetailProps) {
   return (
     <div
-      className={`w-20 h-32 mx-2 my-6 py-2 relative text-center font-semibold cursor-pointer rounded-t-full rounded-b-full ${
+      className={`w-20 h-32 mx-2 my-6 py-2 relative text-center font-semibold cursor-pointer rounded-t-full rounded-b-full transition-colors duration-200 ${
         styles.category
       } ${currentId !== category.id ? 'hover:bg-gray-300' : ''}`}
       onClick={() => setCurrentId(category.id)}

@@ -1,4 +1,5 @@
 import Categories from 'components/Categories/Categories';
+import Footer from 'components/Footer/Footer';
 import Header from 'components/Header/Header';
 import Hero from 'components/Hero/Hero';
 import Products from 'components/Products/Products';
@@ -34,7 +35,7 @@ const Home = ({ categoryList }: { categoryList: TCategory[] }) => {
         <Hero />
         <Categories categories={categoryList} />
         <Products />
-        <div className='h-60'></div>
+        <Footer />
       </main>
     </>
   );
