@@ -28,7 +28,7 @@ export default function Search({ active, setActive }: SearchProps) {
 
 const SearchBody = ({ active, setActive }: SearchProps) => (
   <div
-    className={`lg:w-1/3 lg:relative ${
+    className={`lg:w-2/3 lg:relative ${
       active ? styles.active : 'lg:block lg:opacity-100'
     }`}
   >

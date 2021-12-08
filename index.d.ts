@@ -28,8 +28,8 @@ type TCartItem = {
 
 type TCart = {
   shoppingCart: TCartItem[];
-  quantity: number;
-  active: boolean;
+  quantity?: number;
+  active?: boolean;
 };
 
 type TAPIProdictDetaillResponse = TProduct;

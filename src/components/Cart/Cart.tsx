@@ -1,9 +1,11 @@
 import UserCart from 'components/Header/UserCart';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { AiOutlineClockCircle, AiOutlineClose } from 'react-icons/ai';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from 'state';
+import { RootState } from 'state/reducers';
 import styles from './Cart.module.css';
 import CartItem from './CartItem';
 import Delivery from './Delivery';
@@ -13,10 +15,45 @@ type CartProps = {
   active: boolean;
 };
 
+const delivery = 0.0;
+
 export default function Cart({ active }: CartProps) {
+  const [total, setTotal] = useState<number>(0);
+
+  const { shoppingCart }: TCart = useSelector((state: RootState) => state.cart);
+
   const dispatch = useDispatch();
 
-  const { openCart } = bindActionCreators(actionCreators, dispatch);
+  const { openCart, dropProductsFromCart, setCartQuantity } =
+    bindActionCreators(actionCreators, dispatch);
+
+  const removeProductsFromCart = (id: TProductId): void => {
+    const cartUpdated: TCartItem[] = shoppingCart.filter(
+      product => product.id !== id
+    );
+
+    dropProductsFromCart(cartUpdated);
+  };
+
+  useEffect(() => {
+    setCartQuantity(shoppingCart.length);
+  }, [shoppingCart]);
+
+  useEffect(() => {
+    const getTotalPrice = () => {
+      const totalPrice = shoppingCart.reduce((acc, item) => {
+        return acc + item.price * item.quantity!;
+      }, 0);
+
+      setTotal(totalPrice + delivery);
+    };
+
+    shoppingCart.length && getTotalPrice();
+
+    return () => {
+      setTotal(0);
+    };
+  });
 
   return (
     <div
@@ -24,7 +61,7 @@ export default function Cart({ active }: CartProps) {
         active ? styles.active : 'hidden'
       }`}
     >
-      <div className='w-full px-8 -mt-1 flex items-center justify-between'>
+      <div className='w-full px-8 -mt-2 flex items-center justify-between'>
         <AiOutlineClose
           className='text-3xl cursor-pointer'
           onClick={() => openCart(false)}
@@ -56,28 +93,30 @@ export default function Cart({ active }: CartProps) {
             </Link>
           </div>
         </div>
-        <div className='overflow-y-auto'>
-          {[...Array(6)].map((_, index) => (
-            <CartItem
-              item={{
-                id: index,
-                name: 'Sándwich servido en la tabla de cortar',
-                price: 999.99,
-                quantity: 1,
-                image:
-                  'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=226&w=440',
-              }}
-              key={index}
-            />
-          ))}
-        </div>
-        <Delivery />
-        <div className='w-full mt-8 flex justify-between text-2xl'>
-          Total:
-          <span className='font-bold text-gray-800'>$999.99</span>
-        </div>
-        <hr className='w-full border border-gray-300' />
-        <TotalCart />
+        {shoppingCart.length > 0 ? (
+          <>
+            <div className='overflow-y-auto'>
+              {shoppingCart.map((product, index) => (
+                <CartItem
+                  item={product}
+                  removeProductsFromCart={removeProductsFromCart}
+                  key={index}
+                />
+              ))}
+            </div>
+            <Delivery price={delivery} />
+            <div className='w-full mt-8 flex justify-between text-2xl'>
+              Total:
+              <span className='font-bold text-gray-800'>
+                ${total.toFixed(2)}
+              </span>
+            </div>
+            <hr className='w-full border border-gray-300' />
+            <TotalCart shoppingCart={shoppingCart} />
+          </>
+        ) : (
+          'No hay productos en el carrito'
+        )}
       </div>
     </div>
   );

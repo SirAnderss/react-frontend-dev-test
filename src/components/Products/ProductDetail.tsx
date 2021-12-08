@@ -5,11 +5,18 @@ import styles from './ProductDetail.module.css';
 
 type ProductDetailProps = {
   product: TProduct;
+  productsCartManager: (product: TProduct) => void;
 };
 
-export default function ProductDetail({ product }: ProductDetailProps) {
+export default function ProductDetail({
+  product,
+  productsCartManager,
+}: ProductDetailProps) {
   return (
-    <div className='w-72 mx-auto text-gray-800 cursor-pointer transform duration-150 hover:scale-105 hover:opacity-90'>
+    <div
+      className='w-72 mx-auto text-gray-800 cursor-pointer transform duration-150 hover:scale-105 hover:opacity-90'
+      onClick={() => productsCartManager(product)}
+    >
       <div className={`w-full h-32 relative ${styles['product-card']}`}>
         <Image
           src={
@@ -30,14 +37,14 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </h2>
         <div className='flex items-center gap-2'>
           <AiOutlineStar className='text-xl' />
-          {product.qualification}
+          {product.qualification?.toFixed(1)}
           {[...Array(2)].map((_, i) => (
-            <>
-              <span key={i}>Deli</span>
+            <div key={i}>
+              <span>Deli</span>
               ▪️
-            </>
+            </div>
           ))}
-          {`$ ${product.price}`}
+          {`$ ${product.price.toFixed(2)}`}
         </div>
       </div>
     </div>

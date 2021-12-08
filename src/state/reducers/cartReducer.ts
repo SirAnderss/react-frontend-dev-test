@@ -3,7 +3,7 @@ import { Action } from 'state/actions';
 
 const initalState = {
   shoppingCart: [],
-  quantity: 10,
+  quantity: 0,
   active: false,
 };
 

@@ -7,12 +7,12 @@ interface AddCartProductAction {
 
 interface RemoveCartProductAction {
   type: ActionType.REMOVE;
-  payload: TCartItem;
+  payload: TCartItem[] | [];
 }
 
 interface UpdateCartProductAction {
   type: ActionType.UPDATE;
-  payload: TCartItem;
+  payload: TCartItem[];
 }
 
 interface ClearCartProductAction {

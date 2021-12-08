@@ -29,7 +29,7 @@ export default function Header() {
       </div>
       <Search active={activeSearch} setActive={setActiveSearch} />
       {!active && (
-        <div className='flex h-full items-center gap-4 absolute right-4 lg:-right-20'>
+        <div className='flex h-full items-center gap-4 absolute right-4 lg:fixed lg:right-10'>
           <UserCart />
         </div>
       )}

@@ -1,6 +1,10 @@
 import { MdOutlineDeliveryDining } from 'react-icons/md';
 
-export default function Delivery() {
+type DeliveryProps = {
+  price: number;
+};
+
+export default function Delivery({ price }: DeliveryProps) {
   return (
     <div className='w-full flex gap-2 items-center justify-between'>
       <div className='w-16 h-10 relative grid place-items-center'>
@@ -8,7 +12,7 @@ export default function Delivery() {
         <MdOutlineDeliveryDining className='text-2xl text-yellow-700' />
       </div>
       <span className='font-semibold w-28'>Delivery</span>
-      <span className='w-4/10'>$ 0.00</span>
+      <span className='w-4/10'>$ {price}</span>
     </div>
   );
 }

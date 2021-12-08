@@ -24,13 +24,32 @@ export const clearCart =
     });
   };
 
-// export const updateProductsInCart = (product: TProduct) => (dispatch: Dispatch<Action>, getState): void => {
+export const updateProductsInCart =
+  (products: TCartItem[]) =>
+  (dispatch: Dispatch<Action>): void => {
+    dispatch({
+      type: ActionType.UPDATE,
+      payload: products,
+    });
+  };
 
-//   dispatch({
-//     type: ActionType.UPDATE,
-//     payload: product,
-//   });
-// }
+export const dropProductsFromCart =
+  (products: TCartItem[]) =>
+  (dispatch: Dispatch<Action>): void => {
+    dispatch({
+      type: ActionType.REMOVE,
+      payload: products,
+    });
+  };
+
+export const setCartQuantity =
+  (quantity: number) =>
+  (dispatch: Dispatch<Action>): void => {
+    dispatch({
+      type: ActionType.QUANTITY,
+      payload: quantity,
+    });
+  };
 
 export const openCart =
   (value: boolean) =>
