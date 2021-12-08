@@ -1,6 +1,9 @@
 import UserCart from 'components/Header/UserCart';
 import Link from 'next/link';
-import { AiOutlineClockCircle } from 'react-icons/ai';
+import { AiOutlineClockCircle, AiOutlineClose } from 'react-icons/ai';
+import { useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from 'state';
 import styles from './Cart.module.css';
 import CartItem from './CartItem';
 import Delivery from './Delivery';
@@ -11,14 +14,24 @@ type CartProps = {
 };
 
 export default function Cart({ active }: CartProps) {
+  const dispatch = useDispatch();
+
+  const { openCart } = bindActionCreators(actionCreators, dispatch);
+
   return (
     <div
       className={`w-full h-screen py-6 fixed top-0 right-0 overflow-y-auto lg:w-96  ${
         active ? styles.active : 'hidden'
       }`}
     >
-      <div className='w-full pr-8 flex items-center justify-end gap-4'>
-        <UserCart />
+      <div className='w-full px-8 -mt-1 flex items-center justify-between'>
+        <AiOutlineClose
+          className='text-3xl cursor-pointer'
+          onClick={() => openCart(false)}
+        />
+        <div className='flex items-center gap-4'>
+          <UserCart />
+        </div>
       </div>
       <div className='w-full h-auto mx-auto px-6 flex flex-col items-center justify-center gap-6'>
         <h2 className='text-xl font-semibold'>My 😎 Order</h2>
@@ -50,7 +63,7 @@ export default function Cart({ active }: CartProps) {
                 id: index,
                 name: 'Sándwich servido en la tabla de cortar',
                 price: 999.99,
-                amount: 1,
+                quantity: 1,
                 image:
                   'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=226&w=440',
               }}

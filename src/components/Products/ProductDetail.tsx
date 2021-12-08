@@ -12,7 +12,10 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     <div className='w-72 mx-auto text-gray-800 cursor-pointer transform duration-150 hover:scale-105 hover:opacity-90'>
       <div className={`w-full h-32 relative ${styles['product-card']}`}>
         <Image
-          src={product.image}
+          src={
+            product.image ||
+            'https://images.pexels.com/photos/2566040/pexels-photo-2566040.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=226&w=440'
+          }
           alt={product.name}
           layout='fill'
           className='rounded-xl'

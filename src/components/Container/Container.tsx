@@ -1,9 +1,11 @@
 import Cart from 'components/Cart/Cart';
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from 'state/reducers';
 import styles from './Container.module.css';
 
 export default function Container({ children }: { children: React.ReactNode }) {
-  const [active, setActive] = useState(true);
+  const { active }: TCart = useSelector((state: RootState) => state.cart);
+
   return (
     <div className='block lg:flex'>
       <div className=''>{children}</div>

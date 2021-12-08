@@ -4,24 +4,32 @@ type TCategoryId = number;
 type TCategory = {
   id: TCategoryId;
   name: string;
-  icon: string;
+  icon?: string;
 };
 
 type TProduct = {
   id: TPProductId;
   name: string;
-  qualification: number;
-  time: string;
+  qualification?: number;
+  time?: string;
   price: number;
-  image: string;
+  image?: string;
 };
 
 type TCartItem = {
-  id: TProductId;
+  id: TPProductId;
   name: string;
+  qualification?: number;
+  time?: string;
   price: number;
-  amount: number;
-  image: string;
+  image?: string;
+  quantity?: number;
+};
+
+type TCart = {
+  shoppingCart: TCartItem[];
+  quantity: number;
+  active: boolean;
 };
 
 type TAPIProdictDetaillResponse = TProduct;
