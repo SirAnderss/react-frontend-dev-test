@@ -1,0 +1,21 @@
+.card {
+  box-shadow: 0px 0px 30px 0px #4f4f4f3a;
+}
+
+.active {
+  display: block;
+  opacity: 1;
+  animation: fadeIn 150ms;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    display: none;
+  }
+
+  to {
+    display: block;
+    opacity: 1;
+  }
+}

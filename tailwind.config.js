@@ -12,6 +12,8 @@ module.exports = {
         'custom-purple': colors.themePurple,
         'custom-orange': colors.themeOrange,
         'custom-yellow': colors.themeYellow,
+        'twitter-color': colors.twitterColor,
+        'google-color': colors.googleColor,
       },
       width: {
         104: '28rem',

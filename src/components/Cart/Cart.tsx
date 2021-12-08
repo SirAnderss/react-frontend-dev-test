@@ -57,7 +57,7 @@ export default function Cart({ active }: CartProps) {
 
   return (
     <div
-      className={`w-full h-screen py-6 fixed top-0 right-0 overflow-y-auto lg:w-96  ${
+      className={`w-full h-screen py-6 fixed top-0 right-0 bg-white overflow-y-auto lg:w-96 ${
         active ? styles.active : 'hidden'
       }`}
     >
