@@ -24,7 +24,7 @@ const settings = {
 };
 
 export default function Categories({ categories }: CategoriesProps) {
-  const [currentId, setCurrentId] = useState(1);
+  const [currentId, setCurrentId] = useState<number>(1);
   const sliderRef = useRef<Slider>(null);
 
   return (

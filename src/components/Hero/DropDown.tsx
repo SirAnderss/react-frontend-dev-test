@@ -3,7 +3,7 @@ import { Fragment, useState } from 'react';
 import { BiChevronDown } from 'react-icons/bi';
 
 export default function DropDown() {
-  const [delivery, setDelivery] = useState('Now');
+  const [delivery, setDelivery] = useState<string>('Now');
 
   return (
     <div className=''>

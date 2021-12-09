@@ -7,7 +7,7 @@ import Search from './Search';
 import UserCart from './UserCart';
 
 export default function Header() {
-  const [activeSearch, setActiveSearch] = useState(false);
+  const [activeSearch, setActiveSearch] = useState<boolean>(false);
 
   const { active }: TCart = useSelector((state: RootState) => state.cart);
 
