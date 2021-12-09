@@ -12,7 +12,7 @@ export default function Container({ children }: { children: React.ReactNode }) {
       {active && (
         <>
           <div
-            className={`relative bg-white lg:bg-transparent z-10 ${
+            className={`relative bg-white lg:bg-transparent ${
               active ? styles.active : 'hidden'
             }`}
           />
