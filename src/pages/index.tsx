@@ -28,7 +28,7 @@ const Home = ({ categoryList }: { categoryList: TCategory[] }) => {
       <Head>
         <title>Frontend dev test</title>
         <meta name='description' content='A little dev test' />
-        <link rel='icon' href='/favicon.ico' />
+        <link rel='icon' href='https://i.postimg.cc/7hfbpSpd/favicon.png' />
       </Head>
 
       <main className='w-full mx-auto lg:w-10/12'>

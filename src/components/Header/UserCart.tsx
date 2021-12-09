@@ -1,11 +1,14 @@
+import { logout } from 'firebase-app/auth';
 import Image from 'next/image';
 import { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from 'state';
 import { RootState } from 'state/reducers';
 import SocialButtons from './SocialButtons';
+import styles from './SocialButtons.module.css';
 
 export default function UserCart() {
   const [active, setActive] = useState<boolean>(false);
@@ -13,11 +16,21 @@ export default function UserCart() {
   const { quantity }: TCart = useSelector((state: RootState) => state.cart);
   const userState: any = useSelector((state: RootState) => state.user);
 
-  console.log(userState);
-
   const dispatch = useDispatch();
 
-  const { openCart } = bindActionCreators(actionCreators, dispatch);
+  const { openCart, unSetUser } = bindActionCreators(actionCreators, dispatch);
+
+  const handleLogout = () => {
+    logout();
+    setActive(false);
+    unSetUser();
+
+    toast('Bye bye!', {
+      icon: '👏',
+    });
+
+    if (typeof window !== 'undefined') sessionStorage.removeItem('oul_');
+  };
 
   return (
     <>
@@ -28,8 +41,17 @@ export default function UserCart() {
             alt={userState.user.username}
             width={40}
             height={40}
-            className='rounded-full'
+            className='rounded-full cursor-pointer'
+            onClick={() => setActive(!active)}
           />
+          <div
+            className={`absolute top-11 right-4 px-4 py-2 bg-white text-gray-600 font-semibold rounded tracking-wide cursor-pointer hover:text-gray-800 ${
+              styles.card
+            } ${active && userState.user ? styles.active : 'hidden'}`}
+            onClick={handleLogout}
+          >
+            Logout
+          </div>
         </div>
       ) : (
         <div className='relative'>
@@ -37,7 +59,10 @@ export default function UserCart() {
             className='text-2xl text-gray-700 cursor-pointer'
             onClick={() => setActive(!active)}
           />
-          <SocialButtons active={active} setActive={setActive} />
+          <SocialButtons
+            active={!userState.user && active}
+            setActive={setActive}
+          />
         </div>
       )}
       <div
@@ -52,6 +77,7 @@ export default function UserCart() {
           <AiOutlineShoppingCart className='text-xl' />
         )}
       </div>
+      <Toaster />
     </>
   );
 }

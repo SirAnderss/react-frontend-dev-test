@@ -32,6 +32,8 @@ export default function SocialButtons({
       setActive(false);
 
       setUser(user);
+      if (typeof window !== 'undefined')
+        sessionStorage.setItem('oul_', window.btoa(JSON.stringify(user)));
 
       toast.custom(t => (
         <UserNotification

@@ -8,14 +8,17 @@ export default function Container({ children }: { children: React.ReactNode }) {
 
   return (
     <div className='block lg:flex'>
-      <div className=''>{children}</div>
-      <div
-        className={`relative bg-white lg:bg-transparent z-10 ${
-          active ? styles.active : 'hidden'
-        }`}
-      >
-        <Cart active={active!} />
-      </div>
+      <div>{children}</div>
+      {active && (
+        <>
+          <div
+            className={`relative bg-white lg:bg-transparent z-10 ${
+              active ? styles.active : 'hidden'
+            }`}
+          />
+          <Cart active={active!} />
+        </>
+      )}
     </div>
   );
 }

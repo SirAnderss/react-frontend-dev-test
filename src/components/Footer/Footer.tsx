@@ -6,7 +6,7 @@ import {
 
 export default function Footer() {
   return (
-    <div className='w-full h-20 mt-8 pb-1 flex flex-col justify-end items-center text-gray-700 bg-gray-50'>
+    <div className='w-full h-20 mt-8 pb-1 flex flex-col justify-end items-center text-center text-gray-700 bg-gray-50'>
       <div className='flex gap-3 mb-2'>
         <a
           href='https://twitter.com/SirAnderss'

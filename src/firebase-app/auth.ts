@@ -37,7 +37,7 @@ export const authWithSocialProvider = async (provider: string) => {
       const errorCode = error.code;
       const errorMessage = error.message;
 
-      console.log({ errorCode, errorMessage });
+      console.error({ errorCode, errorMessage });
 
       return null;
     });

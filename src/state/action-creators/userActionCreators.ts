@@ -10,3 +10,12 @@ export const setUser =
       payload: user,
     });
   };
+
+export const unSetUser =
+  () =>
+  (dispatch: Dispatch<Action>): void => {
+    dispatch({
+      type: UserActionType.SET,
+      payload: null,
+    });
+  };
