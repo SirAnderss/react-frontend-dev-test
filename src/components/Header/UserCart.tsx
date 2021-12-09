@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useState } from 'react';
 import { AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +11,9 @@ export default function UserCart() {
   const [active, setActive] = useState<boolean>(false);
 
   const { quantity }: TCart = useSelector((state: RootState) => state.cart);
+  const userState: any = useSelector((state: RootState) => state.user);
+
+  console.log(userState);
 
   const dispatch = useDispatch();
 
@@ -17,13 +21,25 @@ export default function UserCart() {
 
   return (
     <>
-      <div className='relative'>
-        <AiOutlineUser
-          className='text-2xl text-gray-700 cursor-pointer'
-          onClick={() => setActive(!active)}
-        />
-        <SocialButtons active={active} setActive={setActive} />
-      </div>
+      {userState.user ? (
+        <div className='relative flex items-center'>
+          <Image
+            src={userState.user.avatar}
+            alt={userState.user.username}
+            width={40}
+            height={40}
+            className='rounded-full'
+          />
+        </div>
+      ) : (
+        <div className='relative'>
+          <AiOutlineUser
+            className='text-2xl text-gray-700 cursor-pointer'
+            onClick={() => setActive(!active)}
+          />
+          <SocialButtons active={active} setActive={setActive} />
+        </div>
+      )}
       <div
         className={`w-8 h-8 grid place-items-center text-lg font-semibold text-gray-700 rounded-xl lg:w-12 lg:h-12 lg:text-xl ${
           quantity! > 0 ? 'cursor-pointer bg-custom-yellow ' : 'bg-gray-300'

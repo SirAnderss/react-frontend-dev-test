@@ -1,32 +1,32 @@
-import { ActionType } from 'state/action-types';
+import { CartActionType } from 'state/action-types/cartActionTypes';
 
 interface AddCartProductAction {
-  type: ActionType.ADD;
+  type: CartActionType.ADD;
   payload: TCartItem;
 }
 
 interface RemoveCartProductAction {
-  type: ActionType.REMOVE;
+  type: CartActionType.REMOVE;
   payload: TCartItem[] | [];
 }
 
 interface UpdateCartProductAction {
-  type: ActionType.UPDATE;
+  type: CartActionType.UPDATE;
   payload: TCartItem[];
 }
 
 interface ClearCartProductAction {
-  type: ActionType.CLEAR;
+  type: CartActionType.CLEAR;
   payload: [];
 }
 
 interface QuantityCartAction {
-  type: ActionType.QUANTITY;
+  type: CartActionType.QUANTITY;
   payload: number;
 }
 
 interface ActiveCartAction {
-  type: ActionType.ACTIVE;
+  type: CartActionType.ACTIVE;
   payload: boolean;
 }
 

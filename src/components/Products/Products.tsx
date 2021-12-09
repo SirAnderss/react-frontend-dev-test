@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from 'state';
@@ -25,6 +26,9 @@ export default function Products() {
     if (cartItemIndex === -1) {
       addProductToCart(product, 1);
 
+      toast(`${product.name} added to cart`, {
+        icon: '👍🏼',
+      });
       return;
     }
 
@@ -33,6 +37,8 @@ export default function Products() {
     tempCart[cartItemIndex].quantity! += 1;
 
     updateProductsInCart(tempCart);
+
+    toast.success(`${product.name} added to cart`);
   };
 
   useEffect(() => {
@@ -57,16 +63,19 @@ export default function Products() {
   }, [shoppingCart]);
 
   return (
-    <div className='w-full relative pt-8 mx-auto flex flex-col gap-6 lg:w-10/12 lg:flex-row lg:flex-wrap lg:gap-8'>
-      {products.length
-        ? products.map(product => (
-            <ProductDetail
-              product={product}
-              productsCartManager={productsCartManager}
-              key={product.id}
-            />
-          ))
-        : null}
-    </div>
+    <>
+      <div className='w-full relative pt-8 mx-auto flex flex-col gap-6 lg:w-10/12 lg:flex-row lg:flex-wrap lg:gap-8'>
+        {products.length
+          ? products.map(product => (
+              <ProductDetail
+                product={product}
+                productsCartManager={productsCartManager}
+                key={product.id}
+              />
+            ))
+          : null}
+      </div>
+      <Toaster />
+    </>
   );
 }

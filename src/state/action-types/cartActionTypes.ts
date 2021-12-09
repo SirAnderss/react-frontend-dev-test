@@ -1,4 +1,4 @@
-export enum ActionType {
+export enum CartActionType {
   ADD = 'add',
   REMOVE = 'remove',
   UPDATE = 'update',

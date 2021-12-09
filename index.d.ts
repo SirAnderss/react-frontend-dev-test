@@ -32,6 +32,16 @@ type TCart = {
   active?: boolean;
 };
 
+type TUser =
+  | {
+      uid?: string | null;
+      avatar?: string | null;
+      username?: string | null;
+      email?: string | null;
+    }
+  | null
+  | undefined;
+
 type TAPIProdictDetaillResponse = TProduct;
 type TAPICategoryDetaillResponse = TCategory;
 

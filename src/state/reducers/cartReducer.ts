@@ -1,5 +1,5 @@
-import { ActionType } from 'state/action-types/index';
-import { Action } from 'state/actions';
+import { CartActionType } from 'state/action-types/cartActionTypes';
+import { Action } from 'state/actions/cartActions';
 
 const initalState = {
   shoppingCart: [],
@@ -11,22 +11,22 @@ const reducer = (state = initalState, action: Action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case ActionType.ADD:
+    case CartActionType.ADD:
       return { ...state, shoppingCart: [...state.shoppingCart, payload] };
 
-    case ActionType.UPDATE:
+    case CartActionType.UPDATE:
       return { ...state, shoppingCart: payload };
 
-    case ActionType.REMOVE:
+    case CartActionType.REMOVE:
       return { ...state, shoppingCart: payload };
 
-    case ActionType.CLEAR:
+    case CartActionType.CLEAR:
       return { ...state, shoppingCart: payload };
 
-    case ActionType.QUANTITY:
+    case CartActionType.QUANTITY:
       return { ...state, quantity: payload };
 
-    case ActionType.ACTIVE:
+    case CartActionType.ACTIVE:
       return { ...state, active: payload };
 
     default:
